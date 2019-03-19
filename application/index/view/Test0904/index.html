@@ -1,0 +1,55 @@
+<include file='public:header' />
+<h1>{$title}</h1>
+<script src='__PUBLIC__/JavaScript/jquery-1.12.4.js'>
+</script>
+<script>
+<!--
+	$(function()
+	{
+		$("#abc").click(function()
+		{
+			var num = Math.random();
+			$(this).attr('src','__CONTROLLER__/makeverify/s/'+num);
+		})
+	})
+	function check()
+	{
+		var u_name = $("#u_name");
+		var u_pass_a = $("#u_pass_a");
+		var u_pass_b = $("#u_pass_b");
+		var u_code = $("#u_code");
+		if(u_name.val().length<1)
+		{
+			alert('管理员名不能为空');
+			u_name.focus();
+			return false;
+		}
+		if(u_pass_a.val().length<1)
+		{
+			alert('密码不能为空');
+			u_name.focus();
+			return false;
+		}
+		if(u_pass_b.val().length<1)
+		{
+			alert('确认密码不能为空');
+			u_name.focus();
+			return false;
+		}
+		if(u_code.val().length<1)
+		{
+			alert('验证码不能为空');
+			u_name.focus();
+			return false;
+		}
+	}
+-->
+</script>
+<form action='__CONTROLLER__/logincheck' method='post' onsubmit = 'return check();'>
+<p>管理员姓名: <input type='text' name ='u_name'   id='u_name'></p>
+<p>管理员密码: <input type='text' name ='u_pass_a' id='u_pass_a'></p>
+<p>请确认密码: <input type='text' name ='u_pass_b' id='u_pass_b'></p>
+<p>验证码: <input type='text' name ='u_code'><img src='__CONTROLLER__/makeVerify' id='abc' alt='看不清换一张'></p>
+<p><input type='submit' value ='提交'>&nbsp;&nbsp;<input type='reset' value='取消'></p>
+</form><a href="{$Think.server.script_name}/index/login">{$Think.server.script_name}</a>
+<include file='public:foot' />

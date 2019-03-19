@@ -1,0 +1,28 @@
+<script src='/JavaScript/jquery-1.12.4.js'>
+</script>
+<script>
+<!--
+	$(function()
+	{
+		$("#button").click(function()
+		{
+			$("#img").append($("#abc").clone());
+		})
+	})
+	-->
+</script>
+{include file="public/header" /}
+<h1>{$title}</h1>
+<input type='button' value='增加上传数量' id='button'></p>
+
+<form id='form' action='{:url('uploads')}' method='post' enctype="multipart/form-data">
+
+<div id='img'>
+<p id='abc'>请输入图片1说明:<input type='text' name='p_desc1'>请选择图片1上传:	<input type='file' name='photo[]' size='50'></p>
+<p>请输入图片2说明:<input type='text' name='p_desc2'>请选择图片2上传:	<input type='file' name='photo[]' size='50'></p>
+<p>请输入图片3说明:<input type='text' name='p_desc3'>请选择图片3上传:	<input type='file' name='photo[]' size='50'></p>
+	</div>
+	<input type='submit' value='上传图片'>
+</form>
+<img src="{$url}">
+{include file="public/foot" /}

@@ -1,0 +1,31 @@
+<script src='/JavaScript/jquery-1.12.4.js'>
+</script>
+<script>
+<!--
+	$(function()
+	{
+		$("#quit").click(function()
+		{
+			if (confirm('确定要退出吗'))
+			{
+				location.href="quit";
+			}
+			else
+			{
+				
+			}
+		})
+	})
+</script>
+<h1>学生管理系统,欢迎{$e_name}登录</h1>
+<h1>{$title}</h1>
+{include file="public/header" /}
+<p><h2>
+<A HREF="insert">添加</A>
+<A HREF="update">修改</A>
+<A HREF="delete">删除</A>
+<A HREF="select">查询</A>
+<A HREF="#" id='quit'>退出</A>
+</h2>
+</p>
+{include file="public/foot" /}

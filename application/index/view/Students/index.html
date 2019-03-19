@@ -1,0 +1,56 @@
+<head><script src='/static/bs/js/jquery.min.js'></script>
+<script src='/static/bs/js/bootstrap.min.js'></script>
+<link rel='stylesheet' href='/static/bs/css/bootstrap.min.css'>
+</head>
+<body>
+	<div class='contai	ner'>
+		<div class='panel panel-primary'>
+			<div class='panel-heading'>
+				<button class='btn btn-success'>用户展示页面</button>
+				<a href="/Students/create" class='btn btn-danger'>添加学生</a>
+			</div>
+			<div class='panel-body'>
+			<table class='table table-bordered table-hover' >
+			<th>ID</th>
+			<th>NAME</th>
+			<th>RESULT</th>
+			<th>PROFESS</th>
+			<th>ADDRESS</th>
+			<th>修改</th>
+			<th>删除</th> 
+			{volist name='date' id='vo'}
+			<tr>
+			<td>{$vo.e_id}</td>
+			<td>{$vo.e_name}</td>
+			<td>{$vo.e_result}</td>
+			<td>{$vo.e_profess}</td>
+			<td>{$vo.e_address}</td>
+			<td><a href='/students/{$vo.e_id}/edit'>修改</a></td>
+			<form action='/students/{$vo.e_id}' method='post'>
+				<input type="hidden" name="_method" value="delete">
+			<td><button>删除</button></td>
+			</form>
+			<td>
+				<button onclick='del(this,{$vo.e_id})'>AJAX_删除</button>
+			</td>
+			</tr>
+			{/volist}
+			<tr align='center'><td colspan='8'>{$date->render()}</td></tr>
+			</table>
+			</div>
+		</div>
+	</div>	
+</body>
+<script type="text/javascript">
+	function del(obj,id){
+		//发送sql语句
+		$.post('{:url("ajax_del")}',{e_id:id},function(data){
+			if (data.statu==200){
+				alert(data.info);
+				$(obj).parent().parent().remove();
+			}else{
+				alert(data.info);
+			}
+		})
+	}
+</script>

@@ -1,0 +1,24 @@
+<script src='/JavaScript/jquery-1.12.4.js'>
+</script>
+<script>
+<!--
+	$(function()
+	{
+		$("#abc").click(function()
+		{
+			var num = Math.random();
+			alert($(this).attr('src'));
+			$(this).attr('src','/captcha?id='+num);
+		})
+	})
+-->
+</script>
+<form action='{:url('check')}' method='post' onsubmit = 'return check();'>
+<p>验证码: <input type='text' name ='code'></p>
+<p>
+<!--{:captcha_img()}-->
+</p>
+<img id='abc' src='{:captcha_src()}' alt ="看不清换一张" title='{:captcha_src()}' >
+{:captcha_src()}
+<p><input type='submit' value ='提交'>&nbsp;&nbsp;<input type='reset' value='取消'></p>
+</form>

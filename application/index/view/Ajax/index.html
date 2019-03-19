@@ -1,0 +1,24 @@
+<input class="button" id="getkey"  value="获取APP的唯一key值"/>
+ <input class="input" style="width:260px" value="{$key}" id="key" name="key" readOnly="true" />
+<script>
+
+
+    var url='__URL__/GetAppKey';
+
+
+    $(function(){
+        $('#getkey').click(function(){
+            $.post(url,
+                {
+                    packagename:$('#package').val(),
+                    aa:'aa'
+                },
+                function(success){
+                    $('#key').val(success);
+
+                })
+
+        });
+    });
+
+</script>

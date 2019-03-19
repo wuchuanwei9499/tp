@@ -1,0 +1,7 @@
+<h1><{$title}></h1>
+<?php
+	/*require('__PUBLIC__/func/func_session.php');*/
+	//func_session('admin');
+	session_start();
+	echo "欢迎".$_SESSION['u_name'].'登录';
+?>

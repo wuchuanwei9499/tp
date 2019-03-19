@@ -1,0 +1,23 @@
+{include file="public/header" /}
+<style>
+/*分页样式*/  
+.pagination{text-align:center;margin-top:20px;margin-bottom: 20px;}  
+.pagination li{margin:0px 10px; border:1px solid #e6e6e6;padding: 3px 8px;display: inline-block;}  
+.pagination .active{background-color: #46A3FF;color: #fff;}  
+.pagination .disabled{color:#aaa;} 
+</style>
+<table width='800px' align='center' border='1px'>
+<th>ID</th>
+<th>NAME</th>
+<th>RESULT</th>
+{volist name="data" id='val'}
+	<tr>
+		<td>{$val.e_id}</td>
+		<td>{$val.e_name}</td>
+		<td>{$val.e_result}</td>
+	</tr>
+{/volist}
+<tr ><td colspan='3'>
+{$data->render()}</td></tr>
+</table>
+{include file="public/foot" /}
